@@ -1,5 +1,8 @@
 module main
 
+import rest
+
 fn main() {
-	println('Hello, world!')
+	println("Starting server on port 8811")
+	rest.serve()!
 }

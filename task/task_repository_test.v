@@ -1,12 +1,12 @@
 module task
 
 fn should_pass_any_impl(connection_url string) ! {
-	mut service := create_task_repo(connection_url)!
-	service.migrate()!
+	mut repo := create_task_repo(connection_url)!
+	repo.migrate()!
 	defer {
-		service.close()
+		repo.close()
 	}
-	service.log(ExecutionLog{
+	repo.log(ExecutionLog{
 		parent_id: ''
 		task_id:   'test'
 		status:    ExecutionStatus.should_start
