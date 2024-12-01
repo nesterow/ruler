@@ -45,6 +45,7 @@ struct TaskMetadata {
 @[table: 'tasks']
 struct Task {
 	id        string @[primary]
+	agent_id  string
 	ref       string
 	name      string
 	parent_id string

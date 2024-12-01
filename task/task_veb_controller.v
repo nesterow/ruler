@@ -2,7 +2,6 @@ module task
 
 import veb
 
-
 pub struct TaskVebContext {
 	veb.Context
 }
@@ -10,5 +9,11 @@ pub struct TaskVebContext {
 pub struct TaskVebController {}
 
 pub fn (ctrl &TaskVebController) index(mut ctx TaskVebContext) veb.Result {
-    return ctx.text('from task')
+	return ctx.text('from task')
+}
+
+@[post]
+pub fn (ctrl &TaskVebController) create_index(mut ctx TaskVebContext) veb.Result {
+	println(ctx.form)
+	return ctx.text('test')
 }
