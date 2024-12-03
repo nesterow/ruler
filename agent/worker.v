@@ -10,6 +10,7 @@ mut:
 	task_index map[string]TaskDefinition
 pub:
 	worker_id  string
+	token      string
 	server_url string
 }
 
@@ -33,6 +34,7 @@ struct InitTask {
 struct InitRequest {
 pub:
 	worker_id string
+	token     string
 mut:
 	index []InitTask
 }
@@ -46,6 +48,7 @@ fn (w Worker) init() ! {
 
 	mut data := InitRequest{
 		worker_id: w.worker_id
+		token:     w.token
 	}
 	for _, task in w.task_index {
 		data.index << InitTask{

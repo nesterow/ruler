@@ -6,7 +6,10 @@ pub struct TaskVebContext {
 	veb.Context
 }
 
-pub struct TaskVebController {}
+pub struct TaskVebController {
+pub:
+	tasks TaskRepository
+}
 
 pub fn (ctrl &TaskVebController) index(mut ctx TaskVebContext) veb.Result {
 	return ctx.text('from task')

@@ -18,7 +18,7 @@ pub fn (mut t TaskSQLiteRepo) close() {
 	t.db.close() or { panic(err) }
 }
 
-pub fn (t TaskSQLiteRepo) migrate() ! {
+pub fn (t TaskSQLiteRepo) seed() ! {
 	sql t.db {
 		create table TaskMetadata
 		create table Task

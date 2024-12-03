@@ -8,8 +8,8 @@ fn should_pass_any_impl(connection_url string) ! {
 	}
 
 	repo.create(Agent{
-		id:           'agent'
-		access_token: '123'
+		id:    'agent'
+		token: '123'
 	})!
 
 	agents := repo.find()!
@@ -27,8 +27,8 @@ fn should_pass_any_impl(connection_url string) ! {
 	}
 
 	repo.update(Agent{
-		id:           'agent'
-		access_token: '1234'
+		id:    'agent'
+		token: '1234'
 	})!
 
 	agent_upd := repo.get_one_by_token('1234')!

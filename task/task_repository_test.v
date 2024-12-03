@@ -2,7 +2,7 @@ module task
 
 fn should_pass_any_impl(connection_url string) ! {
 	mut repo := create_task_repo(connection_url)!
-	repo.migrate()!
+	repo.seed()!
 	defer {
 		repo.close()
 	}

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "conc 'bun dev:server' 'bun dev:client' 'bun dev:app'",
+    "dev:server": "nodemon --exec \"v run\" --watch . -e v,vsh,sql cmd/server",
+    "dev:client": "nodemon --exec \"v run\" --watch . -e v,vsh,sql cmd/client",
+    "dev:app": "cd app && bun run --bun dev"
+  }
+}

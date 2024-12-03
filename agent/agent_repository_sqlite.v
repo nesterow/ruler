@@ -36,7 +36,7 @@ pub fn (a AgentSQLiteRepo) get_one(id string) !Agent {
 
 pub fn (a AgentSQLiteRepo) get_one_by_token(token string) !Agent {
 	agents := sql a.db {
-		select from Agent where access_token == token
+		select from Agent where token == token
 	}!
 	if agents.len == 0 {
 		return error('agent not found')
@@ -59,7 +59,7 @@ pub fn (a AgentSQLiteRepo) create(data Agent) ! {
 
 pub fn (a AgentSQLiteRepo) update(data Agent) ! {
 	sql a.db {
-		update Agent set access_token = data.access_token where id == data.id
+		update Agent set token = data.token where id == data.id
 	}!
 }
 
@@ -71,6 +71,6 @@ pub fn (a AgentSQLiteRepo) delete(id string) ! {
 
 pub fn (a AgentSQLiteRepo) set_online(access_token string) ! {
 	sql a.db {
-		update Agent set last_seen = 'CURRENT_TIME' where access_token == access_token
+		update Agent set last_seen = 'CURRENT_TIME' where token == access_token
 	}!
 }

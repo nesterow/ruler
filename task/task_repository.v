@@ -1,7 +1,7 @@
 module task
 
 interface TaskRepository {
-	migrate() !
+	seed() !
 	create(task Task) !
 	log(log ExecutionLog) !
 mut:

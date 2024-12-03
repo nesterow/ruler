@@ -10,10 +10,10 @@ The access token is set by an angent on the first connection to prevent hijaking
 @[table: 'agents']
 pub struct Agent {
 pub:
-	id           string @[primary]
-	ip           ?string
-	hostname     ?string
-	access_token string    @[required; unique]
-	last_seen    time.Time @[default: 'CURRENT_TIME']
-	created_at   time.Time @[default: 'CURRENT_TIME']
+	id         string @[primary]
+	token      string @[required; unique]
+	ip         ?string
+	hostname   ?string
+	last_seen  time.Time @[default: 'CURRENT_TIME']
+	created_at time.Time @[default: 'CURRENT_TIME']
 }
